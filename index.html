@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        font-family: Arial;
+        background-color: #f4f4f4;
+        height: 100vh;
+        overflow: hidden;
+        line-height: 1.6;
+      }
+      #main {
+        padding-left: 20px;
+        padding: 10px;
+      }
+      #nav {
+        display: flex;
+        justify-content: center;
+        background: linear-gradient(to right, #1280cf, #0e6bbd);
+        padding: 15px 0;
+        width: 50%;
+        height: 100vh;
+        overflow-y: auto;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      .top {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 100%;
+        padding: 0;
+      }
+
+      .top li {
+        margin: 5px;
+      }
+
+      a:link,
+      a:visited {
+        text-decoration: none;
+        display: block;
+        padding: 12px 20px;
+        background: linear-gradient(to right, #1280cf, #0e6bbd);
+        color: white;
+        text-align: center;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+      }
+
+      a:hover {
+        background: linear-gradient(to right, #0e6bbd, #0c5fa3);
+        transform: scale(1.05);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      a:active {
+        background-color: #397d3a;
+      }
+      h1 {
+        color: #1280cf;
+        text-align: center;
+      }
+      @media (max-width: 768px) {
+        body {
+          flex-direction: column;
+          overflow: auto;
+        }
+        #nav {
+          width: 100%;
+          height: auto;
+          position: relative;
+        }
+        #main {
+          height: auto;
+          padding: 15px;
+        }
+        ul {
+          list-style: none;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        li {
+          flex: 1 1 150px;
+          margin: 5px;
+        }
+      }
+    </style>
+    <title>Main Page</title>
+  </head>
+  <body>
+    <div id="nav">
+      <ul class="top">
+        <li><a href="ch1.html">Computer system</a></li>
+        <li>
+          <a href="ch2.html">Number system conversion and boolean logic</a>
+        </li>
+        <li><a href="ch3.html">Computer software and operating system</a></li>
+        <li><a href="ch4.html">Application package</a></li>
+        <li><a href="ch5.html">Programming concepts and logics</a></li>
+        <li><a href="ch6.html">Web technology</a></li>
+        <li><a href="ch7.html">Multimedia</a></li>
+        <li><a href="ch8.html">Information security and cyber law</a></li>
+      </ul>
+    </div>
+    <div id="main">
+      <h1>Welcome to Syllabus Navigation</h1>
+      <hr />
+      <p>
+        The world has witnessed a radical change in the field of Information and
+        Communication Technology (ICT) in recent years, and this process is
+        still ongoing. The relevance of computer education has been increasing
+        day by day. Realizing this, the curriculum of computer science for
+        Grades 11 and 12 has been developed according to the National Curriculum
+        Framework, 2076. The study of this course will help students enter the
+        job market. This will also provide a basis for students to pursue
+        further study in the field.
+      </p>
+    </div>
+  </body>
+</html>

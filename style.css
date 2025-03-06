@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: justify;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#nav {
+    display: flex;
+    max-height: 40%;
+    overflow-y: auto;
+    justify-content: center;
+    background: linear-gradient(to right, #1280cf, #0e6bbd);
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    
+}
+
+.top {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 0;
+}
+
+.top li {
+    margin: 5px;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    display: block;
+    padding: 12px 20px;
+    background: linear-gradient(to right, #1280cf, #0e6bbd);
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+}
+
+a:hover {
+    background: linear-gradient(to right, #0e6bbd, #0c5fa3);
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+a:active {
+    background-color: #397d3a;
+}
+
+#main {
+    flex: 1;
+    padding: 30px;
+    width: 95%;
+    margin: 20px auto;
+    background: white;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+h1 {
+    color: #1280cf;
+    text-align: center;
+}
+/* Hello maam, Since you told us to make the best we can, i learned a bit about how to make the webpage responsive in all resolutions */
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+    }
+
+    #nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .top {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .top li {
+        flex: 1 1 150px;
+        margin: 5px;
+        text-align: center;
+    }
+
+    #main {
+        padding: 15px;
+    }
+}
