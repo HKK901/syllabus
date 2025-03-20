@@ -43,6 +43,225 @@
             <b>Interpreter:</b> Translates a high-level program one statement at a time, making debugging easier but slower in execution (e.g., BASIC, PHP). <br>
             <img src="img/chp5-diff.png" alt="ntg" style="padding-left: 20%;">
         </p>
+
+    <h1>Questions and Answers</h1> <hr>
+
+    <h2>1. What is Programming?</h2>
+    <p>Programming is the process of writing instructions (code) that a computer can execute to perform specific tasks.
+      It involves problem-solving, logic, and algorithm development to create software applications.</p>
+    <p>Programming is done using different languages such as:</p>
+    <ul>
+      <li><strong>Python:</strong> Easy to learn and widely used for data science, web development, and automation.</li>
+      <li><strong>C++:</strong> Used for system programming, game development, and competitive coding.</li>
+      <li><strong>Java:</strong> Used for mobile applications (Android), enterprise applications, and backend
+        development.</li>
+      <li><strong>JavaScript:</strong> Primarily used for web development and interactive websites.</li>
+    </ul>
+    <p>Programming requires logical thinking, problem-solving skills, and an understanding of syntax and semantics.</p>
+
+    <h2>2. What is an Algorithm?</h2>
+    <p>An algorithm is a step-by-step procedure or set of rules for solving a problem in a finite number of steps. It is
+      used in programming to define logic before writing actual code.</p>
+    <p>Characteristics of a good algorithm:</p>
+    <ul>
+      <li><strong>Definiteness:</strong> Each step must be clear and unambiguous.</li>
+      <li><strong>Finiteness:</strong> It must have a finite number of steps.</li>
+      <li><strong>Effectiveness:</strong> Each step should be simple and executable.</li>
+      <li><strong>Input & Output:</strong> It should take input and produce an output.</li>
+    </ul>
+    <p>Example Algorithm: Finding the sum of two numbers</p>
+    <pre>
+        Step 1: Start
+        Step 2: Input two numbers (A, B)
+        Step 3: Compute Sum = A + B
+        Step 4: Display Sum
+        Step 5: Stop
+    </pre>
+
+    <h2>3. What is a Flowchart?</h2>
+    <p>A flowchart is a graphical representation of an algorithm using symbols to illustrate steps and decision-making
+      in a program.</p>
+    <p>Common flowchart symbols:</p>
+    <ul>
+      <li><strong>Oval:</strong> Start/End</li>
+      <li><strong>Parallelogram:</strong> Input/Output</li>
+      <li><strong>Rectangle:</strong> Process (Calculation or Action)</li>
+      <li><strong>Diamond:</strong> Decision (Yes/No or True/False)</li>
+      <li><strong>Arrow:</strong> Flow of execution</li>
+    </ul>
+    <p>Flowcharts help programmers visualize logic before coding, making debugging easier.</p>
+
+    <h2>4. What are Variables and Data Types?</h2>
+    <p>A variable is a named storage location in memory used to hold data. The value of a variable can change during
+      program execution.</p>
+    <p>Data types define the type of data that a variable can hold. Common data types include:</p>
+    <ul>
+      <li><strong>Integer (int):</strong> Holds whole numbers (e.g., 5, -10).</li>
+      <li><strong>Float (float/double):</strong> Holds decimal numbers (e.g., 3.14, -2.5).</li>
+      <li><strong>Character (char):</strong> Holds a single character (e.g., 'A', '5').</li>
+      <li><strong>String:</strong> Holds a sequence of characters (e.g., "Hello").</li>
+      <li><strong>Boolean (bool):</strong> Holds True or False values.</li>
+    </ul>
+    <p>Example in Python:</p>
+    <pre>
+        age = 20           # Integer
+        price = 10.99      # Float
+        name = "Alice"     # String
+        is_student = True  # Boolean
+    </pre>
+
+    <h2>5. What are Conditional Statements?</h2>
+    <p>Conditional statements allow a program to make decisions based on conditions. The main types are:</p>
+    <ul>
+      <li><strong>If Statement:</strong> Executes a block of code if the condition is true.</li>
+      <li><strong>If-Else Statement:</strong> Executes one block if the condition is true, otherwise executes another
+        block.</li>
+      <li><strong>Nested If:</strong> If statements inside other if statements.</li>
+      <li><strong>Switch Case (in some languages):</strong> Used as an alternative to multiple if-else statements.</li>
+    </ul>
+    <p>Example in Python:</p>
+    <pre>
+        age = 18
+        if age >= 18:
+            print("You are eligible to vote.")
+        else:
+            print("You are not eligible to vote.")
+    </pre>
+
+    <h2>6. What are Loops in Programming?</h2>
+    <p>Loops are used to execute a block of code multiple times. The main types of loops are:</p>
+    <ul>
+      <li><strong>For Loop:</strong> Repeats a block of code a specific number of times.</li>
+      <li><strong>While Loop:</strong> Repeats while a condition is true.</li>
+      <li><strong>Do-While Loop (in some languages):</strong> Executes at least once before checking the condition.</li>
+    </ul>
+    <p>Example in Python (For Loop):</p>
+    <pre>
+        for i in range(1, 6):
+            print(i)
+    </pre>
+    <p>This prints numbers from 1 to 5.</p>
+
+    <h2>7. What are Functions in Programming?</h2>
+    <p>A function is a reusable block of code that performs a specific task. Functions help in modular programming and
+      avoid repetition.</p>
+    <p>Types of Functions:</p>
+    <ul>
+      <li><strong>Built-in Functions:</strong> Predefined functions like print(), len(), etc.</li>
+      <li><strong>User-defined Functions:</strong> Functions created by the programmer.</li>
+    </ul>
+    <p>Example in Python:</p>
+    <pre>
+        def greet(name):
+            print("Hello, " + name + "!")
+
+        greet("Alice")
+    </pre>
+
+    <h2>8. What is an Array?</h2>
+    <p>An array is a data structure that stores multiple values of the same data type in a single variable.</p>
+    <p>Example of an array in Python (using a list):</p>
+    <pre>
+        numbers = [10, 20, 30, 40]
+        print(numbers[0])  # Output: 10
+    </pre>
+    <p>Arrays allow efficient storage and manipulation of data.</p>
+
+    <h2>9. What is Object-Oriented Programming (OOP)?</h2>
+    <p>Object-Oriented Programming (OOP) is a programming paradigm that uses objects to structure code.</p>
+    <p>Key OOP Concepts:</p>
+    <ul>
+      <li><strong>Class:</strong> A blueprint for creating objects.</li>
+      <li><strong>Object:</strong> An instance of a class.</li>
+      <li><strong>Encapsulation:</strong> Hiding data within an object.</li>
+      <li><strong>Inheritance:</strong> Reusing code by inheriting properties from another class.</li>
+      <li><strong>Polymorphism:</strong> One function behaving differently based on the context.</li>
+    </ul>
+
+    <h2>10. What is C Programming?</h2>
+    <p>C is a general-purpose, procedural programming language developed by Dennis Ritchie in 1972. It is widely used
+      for system programming, game development, and embedded systems.</p>
+    <p>C is known for its efficiency, portability, and use of structured programming techniques.</p>
+
+    <h2>11. What are the Basic Features of C?</h2>
+    <p>C has several important features:</p>
+    <ul>
+      <li><strong>Simple and Efficient:</strong> Provides direct control over hardware.</li>
+      <li><strong>Portable:</strong> Code can be compiled on different platforms.</li>
+      <li><strong>Structured Language:</strong> Uses functions and loops for better organization.</li>
+      <li><strong>Supports Low-level Manipulation:</strong> Allows direct access to memory.</li>
+      <li><strong>Fast Execution:</strong> Used in performance-critical applications.</li>
+    </ul>
+
+    <h2>12. What is the Basic Structure of a C Program?</h2>
+    <p>A C program consists of:</p>
+    <ul>
+      <li><strong>Preprocessor Directives:</strong> Instructions like #include.</li>
+      <li><strong>Main Function:</strong> int main() where execution starts.</li>
+      <li><strong>Variables and Data Types:</strong> Used to store values.</li>
+      <li><strong>Functions:</strong> Blocks of reusable code.</li>
+      <li><strong>Statements and Expressions:</strong> Instructions for computation.</li>
+    </ul>
+    <p>Example:</p>
+    <pre>
+        #include <stdio.h>
+
+        int main() {
+            printf("Hello, World!");
+            return 0;
+        }
+    </pre>
+
+    <h2>13. What are Data Types in C?</h2>
+    <p>Data types define the type of data stored in a variable.</p>
+    <ul>
+      <li><strong>int:</strong> Integer numbers (e.g., 10, -5).</li>
+      <li><strong>float:</strong> Decimal numbers (e.g., 3.14, -0.99).</li>
+      <li><strong>char:</strong> Single character (e.g., 'A', '5').</li>
+      <li><strong>double:</strong> Larger decimal numbers.</li>
+      <li><strong>void:</strong> No value (used for functions).</li>
+    </ul>
+    <p>Example:</p>
+    <pre>
+        int age = 18;
+        float price = 99.99;
+        char grade = 'A';
+    </pre>
+
+    <h2>14. What are Operators in C?</h2>
+    <p>Operators perform operations on variables and values.</p>
+    <ul>
+      <li><strong>Arithmetic Operators:</strong> +, -, *, /, %</li>
+      <li><strong>Relational Operators:</strong> ==, !=, <,>, <=,>=</li>
+      <li><strong>Logical Operators:</strong> &&, ||, !</li>
+      <li><strong>Bitwise Operators:</strong> &, |, ^, ~, <<,>></li>
+      <li><strong>Assignment Operators:</strong> =, +=, -=, *=, /=, %=</li>
+    </ul>
+    <p>Example:</p>
+    <pre>
+        int a = 5, b = 2;
+        int sum = a + b;  // 7
+        int isEqual = (a == b);  // 0 (false)
+    </pre>
+
+    <h2>15. What are Conditional Statements in C?</h2>
+    <p>Conditional statements control the flow of a program based on conditions.</p>
+    <ul>
+      <li><strong>if:</strong> Executes a block if a condition is true.</li>
+      <li><strong>if-else:</strong> Executes one block if true, another if false.</li>
+      <li><strong>else-if:</strong> Checks multiple conditions.</li>
+      <li><strong>switch-case:</strong> Alternative to multiple if-else.</li>
+    </ul>
+    <p>Example:</p>
+    <pre>
+        int num = 10;
+        if (num > 0) {
+            printf("Positive");
+        } else {
+            printf("Negative");
+        }
+    </pre>
+
     </div>
 </body>
 </html>
