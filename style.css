@@ -70,6 +70,7 @@ h1, h2 {
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     overflow: hidden;
+    border-bottom: 1px solid #a3d977;
 }
 
 p, li {
