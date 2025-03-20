@@ -11,29 +11,30 @@ body {
     background-color: #f4f4f4;
     height: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Changed to row for side-by-side layout */
     overflow: hidden;
 }
 
-#currentpg{
+#currentpg {
     background-color: #397d3a;
 }
+
 #nav {
-    display: flex;
-    max-height: 40%;
+    width: 25%; /* Set width of the nav to be 20-30% */
+    max-height: 100%; /* Ensure the nav occupies full height */
     overflow-y: auto;
-    justify-content: center;
     background: linear-gradient(to right, #1280cf, #0e6bbd);
     padding: 15px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    
+    position: sticky; /* Stick nav to the top */
+    top: 0;
 }
 
 .top {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start; /* Align items left */
     width: 100%;
     padding: 0;
 }
@@ -68,10 +69,10 @@ a.active {
 }
 
 #main {
-    flex: 1;
+    flex: 1; /* Main content takes the remaining space */
     padding: 30px;
-    width: 95%;
-    margin: 20px auto;
+    width: 75%; /* Take up the remaining space */
+    margin: 20px;
     background: white;
     border-radius: 10px;
     overflow-y: auto;
@@ -81,30 +82,32 @@ h1 {
     color: #1280cf;
     text-align: center;
 }
-/* Hello maam, Since you told us to make the best we can, i learned a bit about how to make the webpage responsive in all resolutions */
+
+/* Responsive Design */
 @media (max-width: 768px) {
     body {
+        flex-direction: column; /* Stack vertically on smaller screens */
         overflow-y: auto;
     }
 
     #nav {
-        flex-direction: column;
-        align-items: center;
+        width: 100%; /* Full width on smaller screens */
+        max-height: 100%;
+        position: relative; /* Remove sticky behavior */
+    }
+
+    #main {
+        width: 100%; /* Full width on smaller screens */
+        padding: 15px;
     }
 
     .top {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        justify-content: center; /* Center the items in the nav */
     }
 
     .top li {
         flex: 1 1 150px;
         margin: 5px;
         text-align: center;
-    }
-
-    #main {
-        padding: 15px;
     }
 }
