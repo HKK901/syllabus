@@ -15,6 +15,9 @@ body {
     overflow: hidden;
 }
 
+#currentpg{
+    background-color: #397d3a;
+}
 #nav {
     display: flex;
     max-height: 40%;
