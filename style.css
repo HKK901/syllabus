@@ -61,8 +61,10 @@ a:hover {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-a:active {
-    background-color: #397d3a;
+a.active {
+    transform: scale(1.2);
+    background: linear-gradient(to right, #0e6bbd, #0c5fa3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 #main {
