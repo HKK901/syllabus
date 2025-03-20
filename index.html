@@ -7,93 +7,98 @@
         margin: 0;
         padding: 0;
       }
+
       body {
+        margin: 0;
+        font-family: Poppins, Arial, sans-serif;
+        background-color: #141414;
+        color: #e0e0e0;
         display: flex;
-        font-family: Arial;
-        background-color: #f4f4f4;
         height: 100vh;
         overflow: hidden;
         line-height: 1.6;
       }
-      #main {
-        padding-left: 20px;
-        padding: 10px;
-      }
+
       #nav {
-        display: flex;
-        justify-content: center;
-        background: linear-gradient(to right, #1280cf, #0e6bbd);
-        padding: 15px 0;
-        width: 50%;
-        height: 100vh;
+        position: fixed;
+        top: 0;
+        background: #22404a;
+        padding: 1rem;
+        width: 200px;
+        height: 100%;
         overflow-y: auto;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
       }
 
       .top {
         list-style: none;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        width: 100%;
         padding: 0;
       }
 
       .top li {
-        margin: 5px;
+        margin-bottom: 1rem;
       }
 
-      a:link,
-      a:visited {
+      a {
         text-decoration: none;
         display: block;
-        padding: 12px 20px;
-        background: linear-gradient(to right, #1280cf, #0e6bbd);
-        color: white;
+        padding: 0.75rem;
+        background: #a3d977;
+        color: #1b1b1b;
         text-align: center;
-        border-radius: 8px;
+        border-radius: 10px;
         font-weight: bold;
-        transition: background 0.3s ease, transform 0.2s ease;
+        transition: all 0.3s ease;
         box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
       }
 
       a:hover {
-        background: linear-gradient(to right, #0e6bbd, #0c5fa3);
+        background: #90c766;
         transform: scale(1.05);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
       }
 
-      a:active {
-        background-color: #397d3a;
+      a.active {
+        background-color: #5cbe11;
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       }
+
+      #main {
+        margin-left: 220px;
+        padding: 2rem;
+        background-color: #141414;
+        flex-grow: 1;
+        overflow-y: auto;
+      }
+
       h1 {
-        color: #1280cf;
         text-align: center;
+        margin: 2rem;
+        font-size: 2.5rem;
       }
-      @media (max-width: 768px) {
-        body {
-          flex-direction: column;
-          overflow: auto;
-        }
-        #nav {
-          width: 100%;
-          height: auto;
-          position: relative;
-        }
-        #main {
-          height: auto;
-          padding: 15px;
-        }
-        ul {
-          list-style: none;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-        li {
-          flex: 1 1 150px;
-          margin: 5px;
-        }
+
+      p {
+        color: #ece9e9;
+        line-height: 1.6;
+      }
+      hr {
+        margin-bottom: 1.6rem;
+      }
+      /* This is my most favourite thing i learned while doing this assignment. i learned to create a watermark without having to add a div in all the files:  */
+      body::after {
+        content: "Created by Harshit Karna";
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        color: #a3d977;
+        opacity: 0.3;
+        font-size: 0.8rem;
+        font-family: Poppins, Arial, sans-serif;
+        pointer-events: none;
+        z-index: 9999;
       }
     </style>
     <title>Main Page</title>
@@ -101,10 +106,9 @@
   <body>
     <div id="nav">
       <ul class="top">
-        <li><a href="ch1.html">Chappter 1</a></li>
-        <li>
-          <a href="ch2.html">Chapter 2</a>
-        </li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="ch1.html">Chapter 1</a></li>
+        <li><a href="ch2.html">Chapter 2</a></li>
         <li><a href="ch3.html">Chapter 3</a></li>
         <li><a href="ch4.html">Chapter 4</a></li>
         <li><a href="ch5.html">Chapter 5</a></li>
@@ -116,16 +120,35 @@
     <div id="main">
       <h1>Welcome to Syllabus Navigation</h1>
       <hr />
-      <p>
-        The world has witnessed a radical change in the field of Information and
-        Communication Technology (ICT) in recent years, and this process is
-        still ongoing. The relevance of computer education has been increasing
-        day by day. Realizing this, the curriculum of computer science for
-        Grades 11 and 12 has been developed according to the National Curriculum
-        Framework, 2076. The study of this course will help students enter the
-        job market. This will also provide a basis for students to pursue
-        further study in the field.
-      </p>
+      <div
+        style="
+          border: 1px solid #5cbe11;
+          padding: 1rem;
+          border-radius: 10px;
+          background-color: #2a2a2a;
+          text-align: center;
+          font-size: large;
+          font-style: oblique;
+        "
+      >
+        <p>
+          The world has witnessed a radical change in the field of Information
+          and Communication Technology (ICT) in recent years, and this process
+          is still ongoing. The relevance of computer education has been
+          increasing day by day. Realizing this, the curriculum of computer
+          science for Grades 11 and 12 has been developed according to the
+          National Curriculum Framework, 2076.
+        </p>
+        <br />
+        <p>
+          This website is designed to help students navigate through the
+          syllabus of Computer Science for Grade 11 and 12. You can click on the
+          chapters on the left to view the content of the respective chapters.
+          Although not as detailed as the textbooks, this website provides a
+          brief overview of the chapters, enough to help you understand the
+          content and get a recap.
+        </p>
+      </div>
     </div>
   </body>
 </html>
