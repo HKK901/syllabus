@@ -133,3 +133,19 @@ body::after {
     pointer-events: none;
     z-index: 9999;
 }
+
+iframe {
+    border: 0px;
+    width: 100%; /* Full width of the container */
+    max-width: 900px; /* Same as <pre>, adjust as needed */
+    height: 500px; /* Increase height */
+    background-color: #121212;
+    color: #cddbf9;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-family: monospace;
+    font-size: 1.1rem;
+    overflow: auto;
+    display: block; /* Ensure it behaves like a block element */
+}
