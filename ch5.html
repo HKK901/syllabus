@@ -90,10 +90,229 @@
       </div>
 
       <div class="section">
+        <h2>Programming Logic</h2>
+        <p>
+          Programming logic is the process of developing and implementing
+          sequences of operations to solve a problem. It involves defining the
+          steps and conditions required to perform a task and produce the
+          desired output.
+        </p>
+        <p>Key concepts of programming logic:</p>
+        <ul>
+          <li>
+            <strong>Sequence:</strong> Executing instructions in a specific
+            order.
+          </li>
+          <li>
+            <strong>Selection:</strong> Making decisions based on conditions.
+          </li>
+          <li>
+            <strong>Iteration:</strong> Repeating a set of instructions until a
+            condition is met.
+          </li>
+        </ul>
+        <p>
+          Programming logic helps programmers design efficient algorithms and
+          implement them using programming languages.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Iterative Control Structure</h2>
+        <p>
+          An iterative control structure allows a set of instructions to be
+          repeated until a specific condition is met. It involves loops that
+          execute a block of code multiple times based on the loop condition.
+        </p> <hr>
+        <h2>Types of loops:</h2>
+        <ul>
+          <li>
+            <strong>For Loop:</strong> Executes a block of code a specified
+            number of times. <br>
+            Syntax:
+            <pre>
+              for (initialization; condition; increment/decrement)
+                { code block; }</pre>
+            Example:
+            <pre>
+              #include<stdio.h>
+                int main()
+                {
+                    int i;
+                    for (i = 1; i <= 5; i++)
+                    {
+                        printf("%d\n", i);
+                    }
+                    return 0;
+                }
+            </pre>
+          </li>
+          <li>
+            <strong>While Loop:</strong> Executes a block of code as long as a
+            condition is true. <br>
+            Syntax:
+            <pre>
+              while (condition)
+                { code block; }
+              </pre>
+            Example:
+            <pre>
+              #include<stdio.h>
+                int main()
+                {
+                    int i = 1;
+                    while (i <= 5)
+                    {
+                        printf("%d\n", i);
+                        i++;
+                    }
+                    return 0;
+                }
+            </pre>
+          </li>
+          <li>
+            <strong>Do-While Loop:</strong> Executes a block of code at least
+            once and then repeats as long as a condition is true. <br>
+            Syntax:
+            <pre>
+              do
+                { code block; }
+              while (condition);
+            </pre>
+            Example:
+            <pre>
+              #include<stdio.h>
+                int main()
+                {
+                    int i = 1;
+                    do
+                    {
+                        printf("%d\n", i);
+                        i++;
+                    }
+                    while (i <= 5);
+                    return 0;
+                }
+            </pre>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Array in C-Programming</h2>
+        <p>
+          An array is a collection of elements of the same data type stored in
+          contiguous memory locations. It allows storing multiple values under a
+          single name and accessing them using an index. <br>
+          <strong>Syntax: </strong>
+          <pre>
+            data_type array_name[array_size];
+          </pre>
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>Types of Array: </h2>
+        <ul>
+          <li>
+            <strong>One-Dimensional Array:</strong> Stores elements in a single
+            row or column. <br>
+            Example:
+            <pre>
+              #include<stdio.h>
+                int main()
+                {
+                    int arr[5] = {1, 2, 3, 4, 5};
+                    int i;
+                    for (i = 0; i < 5; i++)
+                    {
+                        printf("%d\n", arr[i]);
+                    }
+                    return 0;
+                }
+            </pre>
+          </li>
+          <li>
+            <strong>Two-Dimensional Array:</strong> Stores elements in rows and
+            columns (matrix). <br>
+            Example:
+            <pre>
+              #include<stdio.h>
+                int main()
+                {
+                    int arr[2][3] = {{1, 2, 3}, {4, 5, 6}};
+                    int i, j;
+                    for (i = 0; i < 2; i++)
+                    {
+                        for (j = 0; j < 3; j++)
+                        {
+                            printf("%d\t", arr[i][j]);
+                        }
+                        printf("\n");
+                    }
+                    return 0;
+                }
+            </pre>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>String array</h2>
+        <p>
+          A string array is an array of strings, where each element of the array is a string. 
+          It is used to store multiple strings in a single variable, making it easier to manage 
+          and manipulate collections of text data.
+        </p>
+        <p><strong>Syntax:</strong></p>
+        <pre>
+          char array_name[row_size][column_size];
+        </pre>
+        <p><strong>Example:</strong></p>
+        <pre>
+          #include<stdio.h>
+            int main()
+            {
+              char names[3][10] = {"Alice", "Bob", "Charlie"};
+              int i;
+              for (i = 0; i < 3; i++)
+              {
+                printf("%s\n", names[i]);
+              }
+              return 0;
+            }
+        </pre>
+      </div>
+
+      <div class="section">
         <h1>Sample C-Programs</h1> <hr />
         <h2>1. Program to find if the input number is prime number or composite</h2>
         <strong>Code: </strong> <br>
-        <iframe src="c-programs/program1.c"></iframe> <br>
+        <pre>
+          #include<stdio.h>
+            int main()
+            {
+                int a, i, t=0;
+                printf("Enter a number: ");
+                scanf("%d", &a);
+                for ( i = 2; i < a; i++)
+                {
+                    if (a%i==0)
+                    {
+                        t=1;
+                    }
+                }
+                if (t=0)
+                {
+                    printf("\n It is a prime number");
+                }
+                else{
+                    printf("\n It is a composite number");
+                }
+                printf("\n Program Executed by Harshit");
+                return 0;
+            }
+        </pre><br>
         <strong>Output: </strong> <br>
         <img src="c-programs/outpt1.jpg" alt="unavailable">
       </div>
@@ -101,7 +320,22 @@
       <div class="section">
         <h2>2. Program to find the factorial of input number</h2>
         <strong>Code: </strong> <br>
-        <iframe src="c-programs/program2.c"></iframe> <br>
+        <pre>
+          #include<stdio.h>
+            int main()
+            {
+                int a, i, ans=1;
+                printf("Enter a number: ");
+                scanf("%d", &a);
+                for ( i = 1; i <= a; i++)
+                {
+                    ans *= i;
+                }
+                printf("The factorial is %d", ans);
+                printf("\n Program Executed by Harshit");
+                return 0;
+            }
+        </pre><br>
         <strong>Output: </strong> <br>
         <img src="c-programs/outpt2.jpg" alt="unavailable">
       </div>
@@ -109,7 +343,27 @@
       <div class="section">
         <h2>3. Program to find if the input number is palindrome or not</h2>
         <strong>Code: </strong> <br>
-        <iframe src="c-programs/program3.c"></iframe> <br>
+        <pre>
+          #include <stdio.h>
+            int main() {
+              int i, b = 0, r, a;
+                printf("Enter an integer: ");
+                scanf("%d", &i);
+                a = i;
+                while (i != 0) {
+                    r = i % 10;
+                    b = b * 10 + r;
+                    i /= 10;
+                }
+                if (a == b)
+                {
+                    printf("%d is a palindrome.", a);}
+                else
+                    {printf("%d is not a palindrome.", a);}
+                printf("\n Program Executed by Harshit");
+                return 0;
+            }
+        </pre><br>
         <strong>Output: </strong> <br>
         <img src="c-programs/outpt3.jpg" alt="unavailable">
       </div>
@@ -117,7 +371,26 @@
       <div class="section">
         <h2>4. Program to display the fibonacci sequence</h2>
         <strong>Code: </strong> <br>
-        <iframe src="c-programs/program4.c"></iframe> <br>
+        <pre>
+          #include <stdio.h>
+            int main() 
+            {
+              int i, n;
+              int a = 0, b = 1;
+              int c = a + b;
+              printf("Enter the number of terms: ");
+              scanf("%d", &n);
+              printf("%d\t %d\t ", a, b);
+              for (i = 3; i <= n; ++i) {
+                printf("%d\t ", c);
+                a = b;
+                b = c;
+                c = a + b;
+              }
+              printf("\n Program Executed by Harshit");
+              return 0;
+            }            
+        </pre><br>
         <strong>Output: </strong> <br>
         <img src="c-programs/outpt4.jpg" alt="unavailable">
       </div>
@@ -125,7 +398,31 @@
       <div class="section">
         <h2>5. Program to find if the input number is perfect number or not</h2>
         <strong>Code: </strong> <br>
-        <iframe src="c-programs/program5.c"></iframe> <br>
+        <pre>
+          #include<stdio.h>
+            int main()
+            {
+                int a, i, t=0;
+                printf("Enter a number: ");
+                scanf("%d", &a);
+                for ( i = 1; i < a; i++)
+                {
+                    if (a%i==0)
+                    {
+                        t+=i;
+                    }
+                }
+                if (t==a)
+                {
+                    printf("\n It is a perfect number");
+                }
+                else{
+                    printf("\n It is not a perfect number");
+                }
+                printf("\n Program Executed by Harshit");
+                return 0;
+            }            
+        </pre><br>
         <strong>Output: </strong> <br>
         <img src="c-programs/outpt5.jpg" alt="unavailable">
       </div>
