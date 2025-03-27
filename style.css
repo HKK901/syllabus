@@ -8,7 +8,29 @@ body {
 h1{
     text-align: center;
     margin: 2rem;
+    margin-bottom: 1rem;
     font-size: 2.5rem;
+}
+
+h1, h2 {
+    color: #a3d977;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-style: oblique;
+}
+
+h2 {
+    margin-bottom: 0rem;
+    position: relative;
+    display: inline-block; 
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #a3d977;
+    margin-top: 0.1rem;
 }
 
 .sidebar {
@@ -72,17 +94,17 @@ a.nav-button.active {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+hr{
+    border: 1px solid #a3d977;
+    margin: 1rem 0;
+}
+
 .content {
     margin-left: 220px;
     padding: 2rem;
     background-color: #1e1e1e;
     min-height: 100vh;
     overflow-y: auto; 
-}
-
-h1, h2 {
-    color: #f0f0f0;
-    margin-bottom: 1rem;
 }
 
 .section {
@@ -112,6 +134,7 @@ pre {
     font-family: monospace;
     font-size: 0.95rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #007bff;
 }
 
 img{
