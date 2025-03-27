@@ -136,9 +136,11 @@ body::after {
 
 iframe {
     border: 0px;
-    width: 100%; /* Full width of the container */
-    max-width: 900px; /* Same as <pre>, adjust as needed */
-    height: 500px; /* Increase height */
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 300px;
+    max-height: 100vh;
     background-color: #121212;
     color: #cddbf9;
     padding: 15px;
@@ -147,5 +149,5 @@ iframe {
     font-family: monospace;
     font-size: 1.1rem;
     overflow: auto;
-    display: block; /* Ensure it behaves like a block element */
+    display: block;
 }
