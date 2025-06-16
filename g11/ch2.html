@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../style.css" />
+  <title>Chapter 2</title>
+</head>
+
+<body>
+  <div class="sidebar">
+    <a href="../index.html" class="nav-button">Home</a>
+    <a href="ch1.html" class="nav-button">Chapter 1</a>
+    <a href="ch2.html" class="nav-button active">Chapter 2</a>
+    <a href="ch3.html" class="nav-button">Chapter 3</a>
+    <a href="ch4.html" class="nav-button">Chapter 4</a>
+    <a href="ch5.html" class="nav-button">Chapter 5</a>
+    <a href="ch6.html" class="nav-button">Chapter 6</a>
+    <a href="ch7.html" class="nav-button">Chapter 7</a>
+    <a href="ch8.html" class="nav-button">Chapter 8</a>
+  </div>
+  <div class="content">
+    <h1>Chapter 2: Number System and Boolean Algebra</h1>
+
+    <div class="section">
+      <h2>1's and 2's Complement</h2>
+      <p>
+        <b>1's Complement:</b> Reciprocal of 1s to 0s and 0s to 1s is its 1's
+        complement. For eg, 1's Complement of (1011)2 is (0100)2 <br /><b>2's Complement:</b>
+        Adding 1 to the 1's complement of a given binary number is its 2's
+        complement. For eg, if (1010)2 is a given number then, its 1's
+        complement is (0101)2 and 2's complement is (0101)2 +(1)2 = (0110)2
+      </p>
+      <img src="img/chp2-rules.png" alt="ntg" />
+    </div>
+
+    <div class="section">
+      <h2>Boolean Logic</h2>
+      <p>
+        Boolean Algebra is algebra of logic, which deals with the study of
+        binary variables and logical operation. As every data are represented
+        in terms binary values, we need to manipulate those values by using
+        some certain rules and expression which we can do through Boolean
+        algebra. It is most common and basic method to analysis and design
+        logic circuit. It was introduced by an English mathematician George
+        Boole. In Boolean algebra the variables can have only one of the two
+        possible value 0 and1 (False or True). Every modern digital computers
+        understand either this two values. <br /><br /><b>Boolean algebra:</b>
+        It is algebra of logic which could accept either of the possible two
+        values 0 and 1 and generate a result through logical relationship and
+        operation.
+
+        <br /><b>Boolean variable:</b> Those entities which has either or 0
+        and 1 and denote some specific operation ore known as boolean
+        variable. Simply, it is an entity in Boolean algebra which has only
+        either of the two possible values. This variable are denoted by A, B,
+        P, Q, X, Y, Z….
+
+        <br /><b>Boolean function (logic functions):</b> Boolean function is
+        an expression formed by binary variables, binary operators such as
+        AND, OR, NOT, parentheses, and equal sign for a given set of value
+        this boolean function gives the 0 or 1 as a result.
+      </p>
+    </div>
+
+    <div class="section">
+      <h1>Questions and Answers</h1>
+      <hr />
+      <h2>1. What is Boolean Algebra?</h2>
+      <p>
+        Boolean Algebra is a branch of algebra that deals with binary
+        variables and logic operations. It is used in digital logic design and
+        computer science for circuit simplifications and logical expressions.
+      </p>
+      <p>It is based on three basic operations:</p>
+      <ul>
+        <li>
+          <strong>AND (⋅):</strong> Outputs true if both inputs are true.
+        </li>
+        <li>
+          <strong>OR (+):</strong> Outputs true if at least one input is true.
+        </li>
+        <li><strong>NOT (¬):</strong> Inverts the input value.</li>
+      </ul>
+      <p>
+        Boolean Algebra follows a set of rules and theorems to simplify
+        logical expressions.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>2. What are the basic laws of Boolean Algebra?</h2>
+      <p>Boolean Algebra follows several fundamental laws:</p>
+      <ul>
+        <li>
+          <strong>Commutative Law:</strong> A + B = B + A and A ⋅ B = B ⋅ A
+        </li>
+        <li>
+          <strong>Associative Law:</strong> (A + B) + C = A + (B + C) and (A ⋅
+          B) ⋅ C = A ⋅ (B ⋅ C)
+        </li>
+        <li>
+          <strong>Distributive Law:</strong> A ⋅ (B + C) = (A ⋅ B) + (A ⋅ C)
+        </li>
+        <li><strong>Identity Law:</strong> A + 0 = A and A ⋅ 1 = A</li>
+        <li><strong>Complement Law:</strong> A + A' = 1 and A ⋅ A' = 0</li>
+        <li><strong>Idempotent Law:</strong> A + A = A and A ⋅ A = A</li>
+      </ul>
+      <p>
+        These laws are used to simplify Boolean expressions for logic circuit
+        design.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>3. What are De Morgan’s Theorems?</h2>
+      <p>
+        De Morgan’s Theorems are important rules used to simplify Boolean
+        expressions:
+      </p>
+      <ul>
+        <li><strong>First Theorem:</strong> ¬(A ⋅ B) = ¬A + ¬B</li>
+        <li><strong>Second Theorem:</strong> ¬(A + B) = ¬A ⋅ ¬B</li>
+      </ul>
+      <p>
+        These theorems help in converting AND operations to OR operations and
+        vice versa, simplifying logic circuit implementation.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>4. Explain the use of Karnaugh Map (K-Map) in Boolean Algebra.</h2>
+      <p>
+        Karnaugh Map (K-Map) is a visual method used to simplify Boolean
+        expressions. It organizes truth table values into a grid where
+        adjacent cells differ by a single variable.
+      </p>
+      <p>Steps to simplify using K-Map:</p>
+      <ul>
+        <li>
+          Draw a K-Map based on the number of variables (2, 3, or 4
+          variables).
+        </li>
+        <li>Fill in the K-Map with truth table values.</li>
+        <li>Group adjacent 1s in powers of 2 (1, 2, 4, 8, etc.).</li>
+        <li>Write the simplified Boolean expression.</li>
+      </ul>
+      <p>
+        K-Maps reduce complex expressions, making circuit design more
+        efficient.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>
+        5. What is a logic gate? Explain different types of logic gates.
+      </h2>
+      <p>
+        A logic gate is an electronic circuit that performs Boolean
+        operations. The basic types of logic gates include:
+      </p>
+      <ul>
+        <li><strong>AND Gate:</strong> Outputs 1 if both inputs are 1.</li>
+        <li>
+          <strong>OR Gate:</strong> Outputs 1 if at least one input is 1.
+        </li>
+        <li>
+          <strong>NOT Gate:</strong> Inverts the input (1 becomes 0, and 0
+          becomes 1).
+        </li>
+        <li>
+          <strong>NAND Gate:</strong> Combination of AND and NOT (inverted AND
+          output).
+        </li>
+        <li>
+          <strong>NOR Gate:</strong> Combination of OR and NOT (inverted OR
+          output).
+        </li>
+        <li><strong>XOR Gate:</strong> Outputs 1 if inputs are different.</li>
+        <li><strong>XNOR Gate:</strong> Outputs 1 if inputs are the same.</li>
+      </ul>
+      <p>
+        Logic gates are used to build digital circuits in computing and
+        electronics.
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>
