@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            font-family: Poppins, Arial, sans-serif;
+            background-color: #141414;
+            color: #e0e0e0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            line-height: 1.6;
+        }
+
+        #nav {
+            position: fixed;
+            top: 0;
+            background: #22404a;
+            padding: 1rem;
+            width: 230px;
+            height: 100%;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .top {
+            list-style: none;
+            padding: 0;
+        }
+
+        .top li {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            position: relative;
+            display: block;
+            background-color: #a3d977;
+            color: #1b1b1b;
+            padding: 0.75rem 0.75rem 0.75rem 1rem;
+            margin: 0.25rem 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        a::before {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 50%;
+            width: 3px;
+            background-color: #1b1b1b;
+            transition: all 0.3s ease;
+        }
+
+        a:hover::before {
+            height: 60%;
+        }
+
+        a.active::before {
+            height: 80%;
+            background-color: #007bff;
+        }
+
+        a:hover {
+            background: #90c766;
+            transform: scale(1.05);
+        }
+
+        a.active {
+            background-color: #5cbe11;
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        #main {
+            margin-left: 220px;
+            padding: 2rem;
+            background-color: #141414;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 2rem;
+            font-size: 2.5rem;
+        }
+
+        p {
+            color: #ece9e9;
+            line-height: 1.6;
+        }
+
+        hr {
+            margin-bottom: 1.6rem;
+        }
+
+        /* This is my most favourite thing i learned while doing this assignment. i learned to create a watermark without having to add a div in all the files:  */
+        body::after {
+            content: "Created by Harshit Karna";
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            color: #a3d977;
+            opacity: 0.3;
+            font-size: 0.8rem;
+            font-family: Poppins, Arial, sans-serif;
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+    <title>Main Page</title>
+</head>
+
+<body>
+    <div id="nav">
+        <ul class="top">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="g11/ch1.html">Chapter 1</a></li>
+            <li><a href="g11/ch2.html">Chapter 2</a></li>
+            <li><a href="g11/ch3.html">Chapter 3</a></li>
+            <li><a href="g11/ch4.html">Chapter 4</a></li>
+            <li><a href="g11/ch5.html">Chapter 5</a></li>
+            <li><a href="g11/ch6.html">Chapter 6</a></li>
+            <li><a href="g11/ch7.html">Chapter 7</a></li>
+            <li><a href="g11/ch8.html">Chapter 8</a></li>
+        </ul>
+    </div>
+    <div id="main">
+        <h1>Welcome to Syllabus Navigation (Grade 11)</h1>
+        <hr />
+        <div style="
+          border: 1px solid #5cbe11;
+          padding: 1rem;
+          border-radius: 10px;
+          background-color: #2a2a2a;
+          text-align: center;
+          font-size: large;
+          font-style: oblique;
+        ">
+            <p>
+                The world has witnessed a radical change in the field of Information
+                and Communication Technology (ICT) in recent years, and this process
+                is still ongoing. The relevance of computer education has been
+                increasing day by day. Realizing this, the curriculum of computer
+                science for Grades 11 and 12 has been developed according to the
+                National Curriculum Framework, 2076.
+            </p>
+            <br />
+            <p>
+                This website is designed to help students navigate through the
+                syllabus of Computer Science for Grade 11. You can click on the
+                chapters on the left to view the content of the respective chapters.
+                Although not as detailed as the textbooks, this website provides a
+                brief overview of the chapters, enough to help you understand the
+                content and get a recap.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
