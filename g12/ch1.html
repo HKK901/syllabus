@@ -569,6 +569,75 @@
 
     <div class="section">
       <h2>11. SQL Commands example</h2>
+
+      <div class="section">
+        <p><strong>a. Create a table named students with the fields: Id, Name, Class, and Marks.</strong></p> <br>
+        <pre>
+          <code>
+            CREATE TABLE students (
+              Id INT AUTO_INCREMENT PRIMARY KEY,
+              Name VARCHAR(50),
+              Class VARCHAR(10),
+              Marks INT(3)
+            );
+          </code>
+        </pre> <br>
+        <strong>Output:</strong> <br>
+        <img src="./img/SQL-qryrun_studentble.png" alt="unavailable"> <br>
+        <img src="./img/SQL-studentble_empty.png" alt="unavailable">
+      </div>
+
+      <div class="section">
+        <p><strong>b. Insert records into the students table with appropriate values.</strong></p> <br>
+        <pre>
+          <code>
+            INSERT INTO students (Name, Class, Marks) VALUES
+            ('Kamlesh', '12A', 85),
+            ('Anita', '12B', 90),
+            ('Phulkumari', '12C', 78);
+            ('Harke', '12D', 88);
+            ('Prakash', '12E', 92);
+          </code>
+        </pre> <br>
+        <strong>Output:</strong> <br>
+        <img src="./img/SQL-qryrun_studentble_dtantry.png" alt="unavailable"> <br>
+        <img src="./img/SQL-studentble_data.png" alt="unavailable">
+      </div>
+
+      <div class="section">
+        <p><strong>c. Display all records from the students table.</strong></p>
+        <pre>
+          <code>
+            SELECT * FROM students;
+          </code>
+        </pre> <br>
+        <img src="./img/SQL-qryrun_studentble_alldisplay.png" alt="unavailable">
+      </div>
+
+      <div class="section">
+        <p><strong>d. Update the marks of a student whose name is 'Anita' to 85.</strong></p>
+        <pre>
+          <code>
+            UPDATE students
+            SET Marks = 85 WHERE Name = 'Anita';
+          </code>
+        </pre> <br>
+        <img src="./img/SQL-qryrun-studentble_updte1.png" alt="unavailable"> <br>
+        <img src="./img/SQL_studentble_updted1.png" alt="unavailable">
+      </div>
+
+      <div class="section">
+        <p><strong>e. Delete the record of the student with id = 3.</strong></p>
+        <pre>
+          <code>
+            DELETE FROM students
+            WHERE Id = 3;
+          </code>
+        </pre> <br>
+        <img src="./img/SQL_qryrun_studentble_dtaDEL1.png" alt="unavailable"> <br>
+        <img src="./img/SQL_studenttble_updted2.png" alt="">
+      </div>
+
     </div>
 
     <div class="section">
