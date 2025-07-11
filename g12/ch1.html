@@ -33,7 +33,7 @@
             }
 
   </style>
-  <title>Chapter 1: Computer System</title>
+  <title>Chapter 1: DBMS</title>
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" />
 </head>
@@ -42,8 +42,8 @@
   <div class="sidebar">
     <a href="../index.html" class="nav-button">Home</a>
     <a href="ch1.html" class="nav-button active">DBMS</a>
-    <!-- <a href="ch2.html" class="nav-button">Chapter 2</a>
-    <a href="ch3.html" class="nav-button">Chapter 3</a>
+    <a href="ch2.html" class="nav-button">C-Programming</a>
+        <!-- <a href="ch3.html" class="nav-button">Chapter 3</a>
     <a href="ch4.html" class="nav-button">Chapter 4</a>
     <a href="ch5.html" class="nav-button">Chapter 5</a>
     <a href="ch6.html" class="nav-button">Chapter 6</a>
@@ -53,7 +53,13 @@
 
   <div class="content">
     <h1>Chapter 1: DBMS</h1>
-    <div class="section">
+    <div class="section-links">
+      <a href="#notes">Notes</a>
+      <a href="#questions">Questions and Answers</a>
+      <a href="#neb-ques">Past NEB Questions</a>
+    </div>
+
+    <div class="section" id="notes">
       <h2>Introduction</h2>
       <div class="section">
         <h2>Data</h2>
@@ -327,7 +333,7 @@
       </div>
     </div>
 
-    <div class="section">
+    <div class="section" id="questions">
       <h1>Questions and Answers</h1>
       <hr>
 
@@ -405,6 +411,163 @@
         <li><strong>Referential Integrity:</strong> Ensures foreign keys correctly reference existing records.</li>
       </ul>
     </div>
+
+    <div class="section" id="neb-ques">
+    <h1>Past NEB Questions</h1>
+
+    <div class="section">
+      <h2>1. What is Database and DBMS? List out the advantages and disadvantages of DBMS.</h2>
+      <p><strong>Database:</strong> An organized collection of related data stored electronically in a structured way.</p>
+      <p><strong>DBMS:</strong> A software system that allows users to define, create, maintain, and control access to the database.</p>
+      <p><strong>Advantages:</strong></p>
+      <ul>
+        <li>Reduced data redundancy</li>
+        <li>Improved data integrity and consistency</li>
+        <li>Better data security</li>
+        <li>Supports concurrent access</li>
+        <li>Provides backup and recovery</li>
+      </ul>
+      <p><strong>Disadvantages:</strong></p>
+      <ul>
+        <li>High initial setup cost</li>
+        <li>Complex to manage</li>
+        <li>Requires skilled personnel</li>
+        <li>Performance may be affected with large data volume</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. Differentiate between file processing system and DBMS. Give at least four points.</h2>
+      <table class="tble">
+        <thead>
+          <tr>
+            <th>File Processing System</th>
+            <th>DBMS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Data redundancy is high</td>
+            <td>Data redundancy is minimized</td>
+          </tr>
+          <tr>
+            <td>No centralized control over data</td>
+            <td>Centralized control of data</td>
+          </tr>
+          <tr>
+            <td>Limited security features</td>
+            <td>Advanced security and access control</td>
+          </tr>
+          <tr>
+            <td>Difficult to handle concurrent access</td>
+            <td>Supports concurrent multi-user access</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>3. Explain the different models of DBMS with advantages and disadvantages.</h2>
+      <p><strong>Hierarchical Model:</strong> Organizes data in a tree structure with parent-child relationships.</p>
+      <p><strong>Advantages:</strong> Fast access to hierarchical data, simple relationships.</p>
+      <p><strong>Disadvantages:</strong> Inflexible structure, difficult to handle many-to-many relationships.</p>
+      <p><strong>Network Model:</strong> Uses a graph structure with multiple parent-child relationships.</p>
+      <p><strong>Advantages:</strong> Supports complex relationships, efficient for many-to-many connections.</p>
+      <p><strong>Disadvantages:</strong> More complex to design and maintain.</p>
+      <p><strong>Relational Model:</strong> Stores data in tables with rows and columns.</p>
+      <p><strong>Advantages:</strong> Easy to understand, flexible, uses SQL.</p>
+      <p><strong>Disadvantages:</strong> Can be slower with very large datasets due to joins.</p>
+    </div>
+
+    <div class="section">
+      <h2>4. What is a relational database? How is it different from other database models?</h2>
+      <p>A relational database organizes data into tables (relations) where each record is a row and each attribute is a column. It differs from hierarchical and network models by using simple tabular structures and supporting SQL for flexible querying. Relationships are managed through keys rather than pointers.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. What is data redundancy? How does DBMS help in reducing it?</h2>
+      <p>Data redundancy is unnecessary duplication of data across files or tables. DBMS reduces redundancy by storing data centrally and normalizing it, so each data item is recorded only once and shared as needed.</p>
+    </div>
+
+    <div class="section">
+      <h2>6. Write differentiate between centralized and distributed database systems.</h2>
+      <table class="tble">
+        <thead>
+          <tr>
+            <th>Centralized Database</th>
+            <th>Distributed Database</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Stored in a single location</td>
+            <td>Distributed across multiple locations</td>
+          </tr>
+          <tr>
+            <td>Easy to manage and secure</td>
+            <td>More complex management and security</td>
+          </tr>
+          <tr>
+            <td>Single point of failure</td>
+            <td>Higher reliability with redundancy</td>
+          </tr>
+          <tr>
+            <td>May have performance bottlenecks</td>
+            <td>Improved performance through distribution</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>7. Who is Database Administrator (DBA)? What are the major responsibilities of DBA?</h2>
+      <p>A Database Administrator (DBA) is a person responsible for managing, maintaining, and securing the database system.</p>
+      <p><strong>Major Responsibilities:</strong></p>
+      <ul>
+        <li>Defining user access permissions</li>
+        <li>Monitoring and optimizing database performance</li>
+        <li>Ensuring data security and integrity</li>
+        <li>Backup and recovery management</li>
+        <li>Installing and upgrading DBMS software</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>8. Define normalization. Explain 1NF, 2NF and 3NF with suitable examples. Explain the normalization process with examples.</h2>
+      <p><strong>Normalization:</strong> The process of organizing data to reduce redundancy and improve integrity.</p>
+      <p><strong>1NF:</strong> All attributes have atomic values. For example, splitting a "Phone Numbers" field containing multiple numbers into separate rows.</p>
+      <p><strong>2NF:</strong> No partial dependency on a part of the composite key. For example, separating student and course information if course details depend only on course ID.</p>
+      <p><strong>3NF:</strong> No transitive dependency between non-key attributes. For example, removing a "Department Name" field from an employee table if it's dependent on Department ID, which is already a key.</p>
+    </div>
+
+    <div class="section">
+      <h2>9. Explain the terms: primary key, foreign key, and candidate key with examples.</h2>
+      <p><strong>Primary Key:</strong> A unique identifier for a record. Example: StudentID in a student table.</p>
+      <p><strong>Foreign Key:</strong> A field linking to a primary key in another table. Example: DepartmentID in Employee table referencing Department table.</p>
+      <p><strong>Candidate Key:</strong> Any field or combination of fields that can uniquely identify a record. Example: Email or NationalID could be candidate keys.</p>
+    </div>
+
+    <div class="section">
+      <h2>10. What is SQL? Explain its components and common functions.</h2>
+      <p><strong>SQL (Structured Query Language):</strong> A language used to manage and query relational databases.</p>
+      <p><strong>Components:</strong></p>
+      <ul>
+        <li><strong>DDL (Data Definition Language):</strong> CREATE, ALTER, DROP</li>
+        <li><strong>DML (Data Manipulation Language):</strong> SELECT, INSERT, UPDATE, DELETE</li>
+        <li><strong>DCL (Data Control Language):</strong> GRANT, REVOKE</li>
+        <li><strong>TCL (Transaction Control Language):</strong> COMMIT, ROLLBACK</li>
+      </ul>
+      <p><strong>Common Functions:</strong></p>
+      <ul>
+        <li>Querying data using SELECT</li>
+        <li>Inserting data with INSERT</li>
+        <li>Updating records with UPDATE</li>
+        <li>Deleting records using DELETE</li>
+        <li>Defining schema with CREATE</li>
+      </ul>
+    </div>
+  </div>
+
 
 </body>
 </html>
