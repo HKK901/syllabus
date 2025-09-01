@@ -514,14 +514,484 @@ union UnionName {
     </div>
     </div>
   </div>
+<div class="section">
+  <h2>Pointers</h2>
 
   <div class="section">
-    <h2>Pointers</h2>
+    <h2>Introduction and Syntax</h2>
+    <p>
+      A pointer is a variable that stores the <strong>address</strong> of another variable. Pointers enable
+      indirect access to memory, efficient parameter passing, dynamic memory management, and working with arrays/strings.
+    </p>
+    <h3>General Syntax</h3>
+    <pre><code>
+data_type *ptr;   // ptr is a pointer to data_type
+ptr = &amp;variable;  // store the address of variable into ptr
+*ptr               // dereference: access the value stored at that address
+    </code></pre>
   </div>
 
   <div class="section">
-    <h2>File Handling in C</h2>
+    <h2>Usage and Working</h2>
+    <ul>
+      <li><strong>Address-of (&amp;):</strong> obtains the memory address of a variable.</li>
+      <li><strong>Dereference (*):</strong> accesses/updates the value at the address stored in a pointer.</li>
+      <li><strong>Null pointers:</strong> initialized to <code>NULL</code> (or <code>0</code>) to indicate “points to nothing.”</li>
+      <li><strong>Pointer arithmetic:</strong> adding/subtracting integers moves by element size (e.g., <code>int*</code> steps by <code>sizeof(int)</code>).</li>
+    </ul>
   </div>
+
+  <div class="section">
+    <h2>Concept of Value and Address</h2>
+    <p>
+      Every variable has two aspects: its <strong>value</strong> (the data it holds) and its <strong>address</strong> (where it lives in memory).
+      Pointers store addresses and let us read or modify the value indirectly through dereferencing.
+    </p>
+    <table class="tble">
+      <thead>
+        <tr>
+          <th>Term</th>
+          <th>Meaning</th>
+          <th>Operator / Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Value</td>
+          <td>Actual data stored in a variable</td>
+          <td><code>x</code></td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>Memory location of that variable</td>
+          <td><code>&amp;x</code></td>
+        </tr>
+        <tr>
+          <td>Pointer</td>
+          <td>Variable that stores an address</td>
+          <td><code>int *p = &amp;x;</code></td>
+        </tr>
+        <tr>
+          <td>Dereference</td>
+          <td>Access value at stored address</td>
+          <td><code>*p</code> gives value of <code>x</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Declaration and Initialization</h2>
+    <pre><code>
+int x = 10;
+int *p = &amp;x;     // initialized to address of x
+int *q = NULL;   // safe "points to nothing" until assigned
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Pointer and Function</h2>
+    <p><strong>Idea:</strong> Pass addresses to functions so users can access/modify caller data efficiently.</p>
+    <pre><code>
+#include &lt;stdio.h&gt;
+void square(int *n) {
+    *n = (*n) * (*n);
+}
+int main() {
+    int num = 5;
+    printf("Original number: %d\n", num);
+    square(&num); // pass address to function
+    printf("Squared number: %d\n", num);
+    printf("\nProgram Executed by Harshit Karna");
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <img src="./img/chp4/Pointer/Pointer+Func.png" alt="unavailable">
+  </div>
+
+  <div class="section">
+    <h2>Call by Reference</h2>
+    <p><strong>Idea:</strong> Simulate call-by-reference in C by passing addresses (pointers) of variables to functions.</p>
+    <pre><code>
+#include &lt;stdio.h&gt;
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int main() {
+    int x = 10, y = 20;
+    printf("Before swap: x = %d, y = %d\n", x, y);
+    swap(&x, &y); // pass addresses for call by reference
+    printf("After swap: x = %d, y = %d\n", x, y);
+    printf("\nProgram Executed by Harshit Karna");
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <img src="./img/chp4/Pointer/Pointer_ClByRef.png" alt="unavailable">
+  </div>
+
+  <div class="section">
+    <h2>Comparison between Call by Value and Call by Reference</h2>
+    <table class="tble">
+      <thead>
+        <tr>
+          <th>Aspect</th>
+          <th>Call by Value</th>
+          <th>Call by Reference (via pointers)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>What is passed</td>
+          <td>A copy of the value</td>
+          <td>Address of the original variable</td>
+        </tr>
+        <tr>
+          <td>Effect on caller data</td>
+          <td>No change to original</td>
+          <td>Function can modify original</td>
+        </tr>
+        <tr>
+          <td>Memory/Speed</td>
+          <td>Extra copying for large data</td>
+          <td>Efficient for large data (no copy)</td>
+        </tr>
+        <tr>
+          <td>Safety</td>
+          <td>Safer (isolation)</td>
+          <td>Requires careful handling of pointers</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Pointer with Arrays</h2>
+    <p><strong>Key facts:</strong> Array name often acts like a pointer to its first element; <code>a[i]</code> equals <code>*(a + i)</code>.</p>
+    <pre><code>
+#include &lt;stdio.h&gt;
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int *p = arr; // array name acts as pointer to first element
+    printf("Array elements using pointer:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", *(p + i));
+    }
+    printf("\nProgram Executed by Harshit Karna");
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <img src="./img/chp4/Pointer/Pointer+Array.png" alt="unavailable">
+  </div>
+
+  <div class="section">
+    <h2>Advantages and Disadvantages</h2>
+    <table class="tble">
+      <thead>
+        <tr>
+          <th>Advantages</th>
+          <th>Disadvantages</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Efficient parameter passing for large data</td>
+          <td>Dangling/NULL pointer dereference can crash</td>
+        </tr>
+        <tr>
+          <td>Enables dynamic memory management</td>
+          <td>Pointer arithmetic errors are subtle</td>
+        </tr>
+        <tr>
+          <td>Supports complex data structures (lists, trees)</td>
+          <td>Harder to read/maintain if misused</td>
+        </tr>
+        <tr>
+          <td>Direct memory access when needed</td>
+          <td>Security risks if not validated</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="section">
+  <h2>File Handling in C</h2>
+
+  <div class="section">
+    <h2>Concept of Data File</h2>
+    <p>
+      A data file stores information on secondary storage (disk) in a persistent form so that programs can
+      read/write it across multiple executions.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Need for File Handling in C</h2>
+    <ul>
+      <li>Persist data beyond program termination.</li>
+      <li>Handle large datasets that do not fit in memory.</li>
+      <li>Exchange data between programs and sessions.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Sequential and Random Files</h2>
+    <table class="tble">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Access Pattern</th>
+          <th>Use Case</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sequential File</td>
+          <td>Read/write in order from start to end</td>
+          <td>Logs, reports, line-by-line processing</td>
+        </tr>
+        <tr>
+          <td>Random (Direct) File</td>
+          <td>Jump to any location (seek by offset)</td>
+          <td>Databases, indexed records, partial updates</td>
+        </tr>
+      </tbody>
+    </table>
+    <img src="./img/chp4/File Handling/Sequential&Random_Access.jpg" alt="unavailable">
+  </div>
+
+  <div class="section">
+    <h2>File Handling Functions (Purpose &amp; Syntax)</h2>
+    <table class="tble">
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>Purpose</th>
+          <th>Syntax</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>fopen()</code></td>
+          <td>Open a file and return a <code>FILE*</code> stream</td>
+          <td><code>FILE *fp = fopen("name","mode");</code></td>
+        </tr>
+        <tr>
+          <td><code>fclose()</code></td>
+          <td>Close an open file stream</td>
+          <td><code>int r = fclose(fp);</code></td>
+        </tr>
+        <tr>
+          <td><code>getc()</code>, <code>putc()</code></td>
+          <td>Character I/O on files</td>
+          <td><code>int ch = getc(fp);</code> &nbsp; <code>int r = putc(ch, fp);</code></td>
+        </tr>
+        <tr>
+          <td><code>fprintf()</code>, <code>fscanf()</code></td>
+          <td>Formatted text I/O</td>
+          <td><code>fprintf(fp, "fmt", ...);</code> &nbsp; <code>fscanf(fp, "fmt", &amp;...);</code></td>
+        </tr>
+        <tr>
+          <td><code>getw()</code>, <code>putw()</code></td>
+          <td>Integer I/O (non-standard/obsolete on many systems)</td>
+          <td><code>int n = getw(fp);</code> &nbsp; <code>putw(n, fp);</code></td>
+        </tr>
+        <tr>
+          <td><code>fgets()</code>, <code>fputs()</code></td>
+          <td>Line/string I/O</td>
+          <td><code>char *s = fgets(buf, size, fp);</code> &nbsp; <code>fputs(s, fp);</code></td>
+        </tr>
+        <tr>
+          <td><code>fread()</code>, <code>fwrite()</code></td>
+          <td>Binary block I/O</td>
+          <td><code>size_t n = fread(ptr, sz, cnt, fp);</code> &nbsp; <code>fwrite(ptr, sz, cnt, fp);</code></td>
+        </tr>
+        <tr>
+          <td><code>remove()</code>, <code>rename()</code></td>
+          <td>Delete or rename a file</td>
+          <td><code>int r = remove("old.txt");</code> &nbsp; <code>int r2 = rename("old","new");</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Random Access Functions (Purpose &amp; Syntax)</h2>
+    <table class="tble">
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>Purpose</th>
+          <th>Syntax</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>fseek()</code></td>
+          <td>Move file position indicator to offset</td>
+          <td><code>int r = fseek(fp, offset, origin);</code></td>
+        </tr>
+        <tr>
+          <td><code>rewind()</code></td>
+          <td>Set position to beginning (like <code>fseek(fp,0,SEEK_SET)</code>)</td>
+          <td><code>rewind(fp);</code></td>
+        </tr>
+        <tr>
+          <td><code>ftell()</code></td>
+          <td>Get current file position</td>
+          <td><code>long pos = ftell(fp);</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>File Opening Modes</h2>
+    <table class="tble">
+      <thead>
+        <tr>
+          <th>Mode</th>
+          <th>Meaning</th>
+          <th>Must Exist?</th>
+          <th>Pointer Position</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>r</code></td>
+          <td>Read (text)</td>
+          <td>Yes</td>
+          <td>Start</td>
+        </tr>
+        <tr>
+          <td><code>r+</code></td>
+          <td>Read/Write (text)</td>
+          <td>Yes</td>
+          <td>Start</td>
+        </tr>
+        <tr>
+          <td><code>w</code></td>
+          <td>Write (truncate/create, text)</td>
+          <td>No</td>
+          <td>Start</td>
+        </tr>
+        <tr>
+          <td><code>w+</code></td>
+          <td>Read/Write (truncate/create, text)</td>
+          <td>No</td>
+          <td>Start</td>
+        </tr>
+        <tr>
+          <td><code>a</code></td>
+          <td>Append (text)</td>
+          <td>No</td>
+          <td>End</td>
+        </tr>
+        <tr>
+          <td><code>a+</code></td>
+          <td>Read/Append (text)</td>
+          <td>No</td>
+          <td>End (reads from start, writes at end)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><em>Binary variants:</em> add <code>b</code> (e.g., <code>"rb"</code>, <code>"wb"</code>, <code>"ab"</code>).</p>
+  </div>
+
+  <div class="section">
+    <h2>Steps to Work with File in C</h2>
+    <ol>
+      <li><strong>Define File Pointer</strong> &mdash; e.g., <code>FILE *fp;</code></li>
+      <li><strong>Open File with Required Mode</strong> &mdash; <code>fp = fopen("data.txt","r");</code></li>
+      <li><strong>Read, Write, Append Operations</strong> &mdash; use appropriate functions.</li>
+      <li><strong>Close the File</strong> &mdash; <code>fclose(fp);</code></li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Writing Data on Files</h2>
+    <pre><code>
+#include &lt;stdio.h&gt;
+int main() {
+    FILE *fp;
+    fp = fopen("901.txt", "w");  // open file in write mode
+    fprintf(fp, "Hello, this is a test file.\n");
+    fclose(fp);
+    printf("Data written successfully.\n");
+    printf("\nProgram Executed by Harshit Karna");
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <img src="./img/chp4/File Handling/Simple_Writing(O).png" alt="unavailable">
+    <img src="./img/chp4/File Handling/Simple_Writing(F).png" alt="unavailable">
+  </div>
+
+  <div class="section">
+    <h2>Reading Data from Files</h2>
+    <pre><code>
+#include &lt;stdio.h&gt;
+int main() {
+    FILE *fp;
+    char ch;
+    fp = fopen("901.txt", "r");  // open file in read mode
+    printf("Contents of 901.txt:\n");
+    while ((ch = getc(fp)) != EOF) {
+        putchar(ch);
+    }
+    fclose(fp);
+    printf("\nProgram Executed by Harshit Karna");
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <img src="./img/chp4/File Handling/Simple_Reading(O).png" alt="unavailable">
+  </div>
+
+  <div class="section">
+    <h2>Appending Data Files</h2>
+    <pre><code>
+#include <stdio.h>
+int main() {
+    FILE *fp;
+    fp = fopen("901.txt", "a");  // open file in append mode
+    fprintf(fp, "I can keep adding new info using append.\n");
+    fclose(fp);
+    printf("Data appended successfully.\n");
+    printf("\nProgram Executed by Harshit Karna");
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <img src="./img/chp4/File Handling/Simple_Appending(O).png" alt="unavailable">
+    <img src="./img/chp4/File Handling/Simple_Appending(F).png" alt="unavailable">
+  </div>
+
+  <div class="section">
+    <h2>End of File (EOF)</h2>
+    <p>
+      <code>EOF</code> signals that no more data can be read from a file stream. Many I/O functions return
+      <code>EOF</code> (commonly <code>-1</code>) or <code>NULL</code> to indicate end-of-file or error.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2><code>typedef</code> Keyword in C</h2>
+    <p>
+      <code>typedef</code> creates an alias (alternate name) for existing types, improving readability and portability.
+    </p>
+    <h3>Syntax</h3>
+    <pre><code>
+typedef existing_type NewName;   // e.g., typedef unsigned long ulong;
+    </code></pre>
+  </div>
+</div>
+
 
     <div class="section" id="questions">
       <h1>Questions and Answers</h1>
