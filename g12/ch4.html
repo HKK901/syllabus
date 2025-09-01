@@ -218,7 +218,7 @@ int fact(int n)
 }
       </code></pre> <br>
       <strong>Output:</strong> <br>
-      <img src="./img/chp4/factorial_recur_fn.png" alt="unavailable">
+      <img src="./img/chp4/Function/factorial_recur_fn.png" alt="unavailable">
 
             <p><strong>Example 2: Sum of natural numbers</strong></p>
       <pre><code>
@@ -242,7 +242,7 @@ int sum(int n)
 }
       </code></pre> <br>
       <strong>Output:</strong> <br>
-      <img src="./img/chp4/noSUM_recur_fn.png" alt="unavailable">
+      <img src="./img/chp4/Function/noSUM_recur_fn.png" alt="unavailable">
     </div>
 
     <div class="section">
@@ -278,7 +278,7 @@ void addarray(int arr[], int size)
 }
       </code></pre> <br>
       <strong>Output: </strong> <br>
-      <img src="./img/chp4/array_fn.png" alt="unavailable">
+      <img src="./img/chp4/Function/array_fn.png" alt="unavailable">
     </div>
   </div>
 
@@ -312,22 +312,149 @@ struct Example {
     <div class="section">
       <h2>Using and accessing struct</h2>
       <h3>Example 1:</h3>
+      <pre><code>
+#include &lt;stdio.h&gt;
+// Defining a struct
+struct Student {
+    int id;
+    char name[20];
+    float marks;
+};
+int main() {
+    struct Student s1 = {101, "Harshit", 89.5}; // Initializing a struct
+    printf("Student ID: %d\n", s1.id);
+    printf("Student Name: %s\n", s1.name);
+    printf("Student Marks: %.2f\n", s1.marks);
+    printf("\nProgram Executed by Harshit Karna");
+    return 0;
+}
+      </code></pre>
       <h3>Output:</h3>
+      <img src="./img/chp4/Struct & Union/Struct_demo.png" alt="unavailable">
     </div>
     <div class="section">
       <h2>Nested struct</h2>
       <h3>Example 1:</h3>
+      <pre><code>
+#include &lt;stdio.h&gt;
+// Defining nested structs
+struct Address {
+    char city[20];
+    int pin;
+};
+struct Student {
+    int id;
+    char name[20];
+    struct Address addr;  // Nested struct
+};
+int main() {
+    // Creating a struct variable
+    struct Student s1 = {101, "Harshit", {"Kathmandu", 44600}};
+    printf("Student ID: %d\n", s1.id);
+    printf("Student Name: %s\n", s1.name);
+    printf("City: %s\n", s1.addr.city);
+    printf("PIN Code: %d\n", s1.addr.pin);
+    printf("\nProgram Executed by Harshit Karna");
+    return 0;
+}
+      </code></pre>
       <h3>Output:</h3>
+      <img src="./img/chp4/Struct & Union/Struct_Nested.png" alt="unavailable">
     </div>
     <div class="section">
       <h2>Array of Struct</h2>
-      <h3>Example 1:</h3>
+      <h3>Example 1: C program that inputs id, name and price of N
+number of books using Structure and print them.</h3>
+<pre><code>
+  #include &lt;stdio.h&gt;
+struct books {
+  int bookid;
+  char bookname[50];
+  unsigned int price;
+};
+void strdsply(struct books book[], int n) {
+  int i;
+  printf("The data stored is:\n\n");
+  printf("Book ID\tBook Name\tPrice\n");
+  for (i = 0; i < n; i++) {
+    printf("%d\t%s\t\t%u\n", book[i].bookid, book[i].bookname, book[i].price);
+  }
+}
+int main() {
+  int n = 0, i;
+  typedef struct books stbk;
+  printf("How many books to enter? ");
+  scanf("%d", &n);
+  stbk book[n];
+  for (i = 0; i < n; i++) {
+    printf("Enter book id: ");
+    scanf("%d", &book[i].bookid);
+    printf("Enter book name: ");
+    scanf("%s", book[i].bookname);
+    printf("Enter its price: ");
+    scanf("%d", &book[i].price);
+  }
+  strdsply(book, n);
+  printf("\nProgram Executed by Harshit Karna\n");
+  return 0;
+}
+</code></pre>
       <h3>Output:</h3>
+      <img src="./img/chp4/Struct & Union/Struct+Array.png" alt="unavailable">
     </div>
     <div class="section">
       <h2>Passing Struct to Function</h2>
-      <h3>Example 1:</h3>
+      <h3>Example: C program that inputs name and address of 5
+students using Structure and arrange them alphabetically by
+the name of the student.</h3>
+<pre><code>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+struct student {
+  char name[50];
+  char address[100];
+};
+void inptStd(struct student s[], int n) {
+  int i;
+  for (i = 0; i < n; i++) {
+    printf("Enter name of student %d: ", i + 1);
+    scanf("%s", s[i].name);
+    printf("Enter address of student %d: ", i + 1);
+    scanf(" %s", s[i].address);
+  }
+}
+void sortStd(struct student s[], int n) {
+  struct student temp;
+  int i, j;
+  for (i = 0; i < n - 1; i++) {
+    for (j = i + 1; j < n; j++) {
+      if (strcmp(s[i].name, s[j].name) > 0) {
+        temp = s[i];
+        s[i] = s[j];
+        s[j] = temp;
+      }
+    }
+  }
+}
+void dsplyStd(struct student s[], int n) {
+  printf("\nStudents sorted by name:\n");
+  printf("Name\t\tAddress\n");
+  int i;
+  for (i = 0; i < n; i++) {
+    printf("%s\t\t%s\n", s[i].name, s[i].address);
+  }
+}
+int main() {
+  struct student students[5];
+  inptStd(students, 5);
+  sortStd(students, 5);
+  dsplyStd(students, 5);
+  printf("\nProgram Executed by Harshit Karna");
+  return 0;
+}
+</code></pre>
       <h3>Output:</h3>
+      <img src="./img/chp4/Struct & Union/Struct+Func.png" alt="unavailable">
     </div>
 
     <div class="section">
