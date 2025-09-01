@@ -42,10 +42,10 @@
   <div class="sidebar">
     <a href="../index.html" class="nav-button">Home</a>
     <a href="ch1.html" class="nav-button active">DBMS</a>
-    <a href="ch2.html" class="nav-button">C-Programming</a>
-        <!-- <a href="ch3.html" class="nav-button">Chapter 3</a>
-    <a href="ch4.html" class="nav-button">Chapter 4</a>
-    <a href="ch5.html" class="nav-button">Chapter 5</a>
+    <!-- <a href="ch2.html" class="nav-button">Chapter 2</a>
+    <a href="ch3.html" class="nav-button">Chapter 3</a> -->
+    <a href="ch4.html" class="nav-button">C-Programming</a>
+    <!-- <a href="ch5.html" class="nav-button">Chapter 5</a>
     <a href="ch6.html" class="nav-button">Chapter 6</a>
     <a href="ch7.html" class="nav-button">Chapter 7</a>
     <a href="ch8.html" class="nav-button">Chapter 8</a> -->
@@ -332,6 +332,50 @@
           <li>Patch Management: Updating database software to prevent exploitation</li>
           <li>Policy Enforcement: Implementing security policies and compliance standards</li>
         </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>ER Diagrams</h2>
+      <p>An ER diagram (Entity-Relationship Diagram) is a visual tool used to model and represent the logical structure of a database by illustrating entities (data objects), their attributes (properties), and the relationships between them. It helps database designers understand complex data structures, plan tables, and ensure that data requirements are met before implementation.</p>
+      <div class="section">
+        <h2>Entity</h2>
+        <h3>Definition:</h3>
+        <p>A real-world object or thing (person, place, object, event) that can be distinctly identified. Example: Student, Car, Book.</p>
+        <h3>Symbol:</h3>
+        <img src="./img/chp1/DBMS_ERdiagram_EntitySymbol.png" alt="unavailable">
+      </div>
+      <div class="section">
+        <h2>Attributes</h2>
+        <h3>Definition:</h3>
+        <p>Properties or characteristics that describe an entity. Example: Student entity might have attributes like Name, ID, Age.</p>
+        <h3>Symbol:</h3>
+        <img src="./img/chp1/DBMS_ERdiagram_AttributeSymbol.png" alt="unavailable">
+      </div>
+      <div class="section">
+        <h2>Relationships</h2>
+        <h3>Definition:</h3>
+        <p>Association between two or more entities. Example: “Enrolls” relationship between Student and Course entities.</p>
+        <h3>Symbol:</h3>
+        <img src="./img/chp1/DBMS_ERdiagram_RelationshipSymbol.png" alt="unavailable">
+      </div>
+      <div class="section">
+        <h2>Cardinality</h2>
+        <h3>Definition:</h3>
+        <p>Specifies the number of instances of one entity that can or must be associated with instances of another entity. Example: A student can enroll in many courses (1:N).</p>
+        <h3>Symbol</h3>
+        <img src="./img/chp1/DBMS_ERdiagram_CardinalitySymbol.png" alt="unavailable">
+      </div>
+      <div class="section">
+        <h2>Degree</h2>
+        <h3>Definition:</h3>
+        <p>The number of entities involved in a relationship. Example:
+          <ul>
+            <li>Unary (degree 1): relationship with itself</li>
+            <li>Binary (degree 2): most common, between two entities</li>
+            <li>Ternary (degree 3): between three entities</li>
+          </ul>
+        </p>
       </div>
     </div>
 
