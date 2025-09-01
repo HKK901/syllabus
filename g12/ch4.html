@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+            .tble {
+              width: 100%;
+              border-collapse: collapse;
+              font-family: Poppins, Arial, sans-serif;
+              margin-top: 1rem;
+            }
+
+            .tble thead tr {
+              border-bottom: 2px solid #a3d977;
+              background-color: transparent;
+            }
+
+            .tble th,
+            .tble td {
+              padding: 12px 16px;
+              text-align: left;
+              color: #e0e0e0;
+            }
+
+            .tble tbody tr:nth-child(odd) {
+              background-color: #141414;
+            }
+
+            .tble tbody tr:nth-child(even) {
+              background-color: #1e1e1e;
+            }
+
+  </style>
+  <title>Chapter 4: C-Programming</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" />
+</head>
+
+<body>
+  <div class="sidebar">
+    <a href="../index.html" class="nav-button">Home</a>
+    <a href="ch1.html" class="nav-button">DBMS</a>
+    <!-- <a href="ch2.html" class="nav-button">Chapter 2</a>
+    <a href="ch3.html" class="nav-button">Chapter 3</a> -->
+    <a href="ch4.html" class="nav-button active">C-Programming</a>
+    <!-- <a href="ch5.html" class="nav-button">Chapter 5</a>
+    <a href="ch6.html" class="nav-button">Chapter 6</a>
+    <a href="ch7.html" class="nav-button">Chapter 7</a>
+    <a href="ch8.html" class="nav-button">Chapter 8</a> -->
+  </div>
+
+  <div class="content">
+    <h1>Chapter 4: C-Programming</h1>
+    <div class="section-links">
+      <a href="#notes">Notes</a>
+      <a href="#questions">Questions and Answers</a>
+      <a href="#neb-ques">Past NEB Questions</a>
+    </div>
+
+    <div class="section" id="notes">
+      <h2>Introduction to Function</h2>
+      <div class="section">
+      <h2>1. Working with a Function</h2>
+
+      <h3>a. Define Function</h3>
+      <p>
+        A function is a block of code that performs a specific task. In C, functions help modularize programs and make code reusable and easier to maintain.
+      </p>
+
+      <h3>b. Syntax of Functions</h3>
+      <pre><code>
+return_type function_name(parameters)
+{
+    // body of the function
+}
+      </code></pre>
+
+      <h3>c. Types of Functions</h3>
+      <ul>
+        <li><strong>Library Functions:</strong> Predefined functions provided by C libraries (e.g., printf(), scanf()).</li>
+        <li><strong>User Defined Functions:</strong> Functions created by the programmer to perform custom tasks.</li>
+      </ul>
+
+      <h3>d. Components of Function</h3>
+      <ul>
+        <li><strong>Function Prototype:</strong> Declaration of a function before its use.</li>
+        <li><strong>Function Call:</strong> Statement that invokes the function.</li>
+        <li><strong>Function Definition:</strong> Body of the function where actual statements are written.</li>
+        <li><strong>Return Type:</strong> Data type of value returned by the function.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. Categories of Function with Examples</h2>
+
+      <h3>i. Function with Return Type but No Arguments</h3>
+      <pre><code>
+int getNumber()
+{
+    return 10;
+}
+      </code></pre>
+
+      <h3>ii. Function with Return Type with Arguments</h3>
+      <pre><code>
+int add(int a, int b)
+{
+    return a + b;
+}
+      </code></pre>
+
+      <h3>iii. Function with No Return Type and No Arguments</h3>
+      <pre><code>
+void display()
+{
+    printf("Hello World");
+}
+      </code></pre>
+
+      <h3>iv. Function with No Return Type but with Arguments</h3>
+      <pre><code>
+void printNumber(int n)
+{
+    printf("Number is %d", n);
+}
+      </code></pre>
+    </div>
+
+    <div class="section">
+    <h2>3. Storage Classes</h2>
+    <ul>
+        <li>
+        <strong>Automatic:</strong> Default storage class for local variables.
+        <pre><code>
+    void demo()
+    {
+        int x = 10; // automatic by default
+        printf("%d", x);
+    }
+        </code></pre>
+        </li>
+
+        <li>
+        <strong>External:</strong> Variables declared outside all functions and accessible globally.
+        <pre><code>
+    #include &lt;stdio.h&gt;
+
+    int globalVar = 5; // external
+
+    void show()
+    {
+        printf("%d", globalVar);
+    }
+        </code></pre>
+        </li>
+
+        <li>
+        <strong>Register:</strong> Variables stored in CPU registers for faster access.
+        <pre><code>
+    void fastAccess()
+    {
+        register int i;
+        for(i = 0; i < 10; i++)
+            printf("%d ", i);
+    }
+        </code></pre>
+        </li>
+
+        <li>
+        <strong>Static:</strong> Variables that retain their value between function calls.
+        <pre><code>
+    void counter()
+    {
+        static int count = 0;
+        count++;
+        printf("Count = %d\n", count);
+    }
+        </code></pre>
+        </li>
+    </ul>
+    </div>
+
+
+    <div class="section">
+      <h2>4. Recursive Function with Syntax and Example</h2>
+      <p>A recursive function calls itself to solve smaller subproblems.</p>
+      <p><strong>Syntax:</strong></p>
+      <pre><code>
+return_type function_name(parameters)
+{
+    if(condition)
+        return result;
+    else
+        return function_name(updated_parameters);
+}
+      </code></pre>
+      <p><strong>Example 1: Factorial</strong></p>
+      <pre><code>
+#include &lt;stdio.h&gt;
+int fact(int);
+int main()
+{
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    printf("Factorial of %d is %d\n", n, fact(n));
+    return 0;
+}
+
+int fact(int n)
+{
+    if(n == 0 || n == 1)
+        return 1;
+    else
+        return n * fact(n - 1);
+}
+      </code></pre> <br>
+      <strong>Output:</strong> <br>
+      <img src="./img/chp4/factorial_recur_fn.png" alt="unavailable">
+
+            <p><strong>Example 2: Sum of natural numbers</strong></p>
+      <pre><code>
+#include &lt;stdio.h&gt;
+int sum(int);
+int main()
+{
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    printf("Sum of first %d natural numbers is %d\n", n, sum(n));
+    return 0;
+}
+
+int sum(int n)
+{
+    if(n == 0)
+        return 0;
+    else
+        return n + sum(n - 1);
+}
+      </code></pre> <br>
+      <strong>Output:</strong> <br>
+      <img src="./img/chp4/noSUM_recur_fn.png" alt="unavailable">
+    </div>
+
+    <div class="section">
+      <h2>5. Passing Array to a Function</h2>
+      <p><strong>Example: Sum of Array Elements</strong></p>
+      <pre><code>
+#include &lt;stdio.h&gt;
+void addarray(int[], int);
+int main() 
+{
+    int n;
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+    
+    int arr[n];
+    printf("Enter %d elements:\n", n);
+    for(int i = 0; i < n; i++) 
+    {
+        scanf("%d", &arr[i]);
+    }
+    addarray(arr, n); 
+    return 0;
+}
+
+void addarray(int arr[], int size) 
+{
+    int sum = 0;
+    for(int i = 0; i < size; i++) 
+    {
+        sum += arr[i];
+    }
+    printf("Sum of the array elements is: %d\n", sum);
+}
+      </code></pre> <br>
+      <strong>Output: </strong> <br>
+      <img src="./img/chp4/array_fn.png" alt="unavailable">
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Structure and Union</h2>
+    <div class="section">
+      <h2>Introduction to Structure</h2>
+      <p>A struct (short for structure) in C is a user-defined data type that groups together different variables (possibly of different types) under one name. It is used to represent a record or a collection of related data.</p>
+      <h3>Syntax:</h3>
+      <pre><code>
+struct StructName {
+    dataType member1;
+    dataType member2;
+    ...
+    dataType memberN;
+};
+      </code></pre>
+      <h3>Size Determination:</h3>
+      <p>The total size of the struct is determined by the variables used in the struct. Specifically, it is the sum of the bytes that each of the variables would store.</p>
+      <pre>
+        <code>
+struct Example {
+    char c;     // 1 byte
+    int i;      // 4 bytes
+};
+        </code>
+      </pre>
+      <p>In this example, the total storage size of struct is 1 + 4 = 5 bytes. (Note: the compiler generally stores some extra padding space, which can be neglected as its usually ~3-4 bytes)</p>
+    </div>
+
+    <div class="section">
+      <h2>Using and accessing struct</h2>
+      <h3>Example 1:</h3>
+      <h3>Output:</h3>
+    </div>
+    <div class="section">
+      <h2>Nested struct</h2>
+      <h3>Example 1:</h3>
+      <h3>Output:</h3>
+    </div>
+    <div class="section">
+      <h2>Array of Struct</h2>
+      <h3>Example 1:</h3>
+      <h3>Output:</h3>
+    </div>
+    <div class="section">
+      <h2>Passing Struct to Function</h2>
+      <h3>Example 1:</h3>
+      <h3>Output:</h3>
+    </div>
+
+    <div class="section">
+      <h2>Union</h2>
+      <h3>Introduction:</h3>
+      <p>A union in C is a special data type that allows you to store different data types in the same memory location. Unlike a struct, where each member gets its own memory location, all members of a union share the same memory space. The size of a union is determined by the size of its largest member.</p>
+      <h3>Syntax:</h3>
+      <pre><code>
+union UnionName {
+    dataType member1;
+    dataType member2;
+    ...
+    dataType memberN;
+};
+      </code></pre>
+    </div>
+
+    <div class="section">
+      <h2>Comparison Between Struct & Union</h2>
+      <div class="tble-container">
+      <table class="tble">
+        <thead>
+          <tr>
+            <th>Aspect</th>
+            <th>Struct</th>
+            <th>Union</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Memory Allocation</td>
+            <td>Each member has its own memory; total size is sum of all members (plus padding).</td>
+            <td>All members share the same memory; size is equal to the largest member.</td>
+          </tr>
+          <tr>
+            <td>Storage</td>
+            <td>Can store values of all members simultaneously.</td>
+            <td>Can store value of only one member at a time.</td>
+          </tr>
+          <tr>
+            <td>Usage</td>
+            <td>Used when data of different types must be stored together and accessed independently.</td>
+            <td>Used when only one member is needed at a time, to save memory.</td>
+          </tr>
+          <tr>
+            <td>Access</td>
+            <td>All members can be accessed without affecting others.</td>
+            <td>Changing one member changes the shared memory, affecting others.</td>
+          </tr>
+          <tr>
+            <td>Size</td>
+            <td>Larger, since it is the sum of all member sizes.</td>
+            <td>Smaller, since it is equal to the largest member size.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Pointers</h2>
+  </div>
+
+  <div class="section">
+    <h2>File Handling in C</h2>
+  </div>
+
+    <div class="section" id="questions">
+      <h1>Questions and Answers</h1>
+      <hr>
+
+      <h2>COMING SOON</h2>
+<!--
+      <h2>1. What is data in the context of a DBMS?</h2>
+      <p>Data refers to raw, unprocessed facts and figures such as numbers, names, or dates. In a DBMS, data is stored in structured formats to be organized and made meaningful through processing.</p>
+    </div>
+
+    <div class="section">
+      <h2>2. How does information differ from data?</h2>
+      <p>Information is processed data that has been structured and given context to be useful. Unlike raw data, information helps in decision-making and provides meaningful insights.</p>
+    </div>
+
+    <div class="section">
+      <h2>3. What is a database?</h2>
+      <p>A database is an organized collection of related data stored electronically. It allows for efficient storage, retrieval, and management of data using database software.</p>
+    </div>
+
+    <div class="section">
+      <h2>4. What are the main features of a DBMS?</h2>
+      <ul>
+        <li>Ensures data integrity and consistency</li>
+        <li>Provides security against unauthorized access</li>
+        <li>Supports backup and recovery</li>
+        <li>Allows concurrent data access</li>
+        <li>Maintains data independence</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>5. List two advantages and two disadvantages of using a DBMS.</h2>
+      <p><strong>Advantages:</strong></p>
+      <ul>
+        <li>Centralized data management</li>
+        <li>Reduced data redundancy</li>
+      </ul>
+      <p><strong>Disadvantages:</strong></p>
+      <ul>
+        <li>High initial setup cost</li>
+        <li>Requires regular maintenance and skilled personnel</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>6. What is a relational database model?</h2>
+      <p>The relational model organizes data into tables, where each table consists of rows (records) and columns (fields). It is widely used due to its simplicity, flexibility, and support for SQL-based queries.</p>
+    </div>
+
+    <div class="section">
+      <h2>7. Define primary key and foreign key.</h2>
+      <p><strong>Primary Key:</strong> A field (or combination of fields) that uniquely identifies each record in a table.</p>
+      <p><strong>Foreign Key:</strong> A field in one table that refers to the primary key of another table, establishing a relationship between the two tables.</p>
+    </div>
+
+    <div class="section">
+      <h2>8. What is normalization? List its first three normal forms.</h2>
+      <p>Normalization is a design process used to organize data in a database to minimize redundancy and improve integrity. The first three normal forms are:</p>
+      <ul>
+        <li><strong>1NF:</strong> Eliminates repeating groups and ensures atomicity.</li>
+        <li><strong>2NF:</strong> Removes partial dependencies on composite primary keys.</li>
+        <li><strong>3NF:</strong> Eliminates transitive dependencies between non-key attributes.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>9. What is the difference between centralized and distributed databases?</h2>
+      <p><strong>Centralized Database:</strong> Stored at a single location, easier to manage, but vulnerable to single-point failures.</p>
+      <p><strong>Distributed Database:</strong> Spread across multiple locations, more reliable and scalable, but harder to manage and maintain.</p>
+    </div>
+
+    <div class="section">
+      <h2>10. What are domain, entity integrity, and referential integrity constraints?</h2>
+      <ul>
+        <li><strong>Domain Constraint:</strong> Ensures values fall within a valid range or type.</li>
+        <li><strong>Entity Integrity:</strong> Requires primary keys to be unique and not null.</li>
+        <li><strong>Referential Integrity:</strong> Ensures foreign keys correctly reference existing records.</li>
+      </ul>
+    </div>
+    -->
+
+  </div>
+
+    <div class="section" id="neb-ques">
+    <h1>Past NEB Questions</h1>
+    <hr>
+    <h2>COMING SOON</h2>
+
+    <!--
+
+    <div class="section">
+      <h2>1. What is Database and DBMS? List out the advantages and disadvantages of DBMS.</h2>
+      <p><strong>Database:</strong> An organized collection of related data stored electronically in a structured way.</p>
+      <p><strong>DBMS:</strong> A software system that allows users to define, create, maintain, and control access to the database.</p>
+      <p><strong>Advantages:</strong></p>
+      <ul>
+        <li>Reduced data redundancy</li>
+        <li>Improved data integrity and consistency</li>
+        <li>Better data security</li>
+        <li>Supports concurrent access</li>
+        <li>Provides backup and recovery</li>
+      </ul>
+      <p><strong>Disadvantages:</strong></p>
+      <ul>
+        <li>High initial setup cost</li>
+        <li>Complex to manage</li>
+        <li>Requires skilled personnel</li>
+        <li>Performance may be affected with large data volume</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>2. Differentiate between file processing system and DBMS. Give at least four points.</h2>
+      <table class="tble">
+        <thead>
+          <tr>
+            <th>File Processing System</th>
+            <th>DBMS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Data redundancy is high</td>
+            <td>Data redundancy is minimized</td>
+          </tr>
+          <tr>
+            <td>No centralized control over data</td>
+            <td>Centralized control of data</td>
+          </tr>
+          <tr>
+            <td>Limited security features</td>
+            <td>Advanced security and access control</td>
+          </tr>
+          <tr>
+            <td>Difficult to handle concurrent access</td>
+            <td>Supports concurrent multi-user access</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>3. Explain the different models of DBMS with advantages and disadvantages.</h2>
+      <p><strong>Hierarchical Model:</strong> Organizes data in a tree structure with parent-child relationships.</p>
+      <p><strong>Advantages:</strong> Fast access to hierarchical data, simple relationships.</p>
+      <p><strong>Disadvantages:</strong> Inflexible structure, difficult to handle many-to-many relationships.</p>
+      <p><strong>Network Model:</strong> Uses a graph structure with multiple parent-child relationships.</p>
+      <p><strong>Advantages:</strong> Supports complex relationships, efficient for many-to-many connections.</p>
+      <p><strong>Disadvantages:</strong> More complex to design and maintain.</p>
+      <p><strong>Relational Model:</strong> Stores data in tables with rows and columns.</p>
+      <p><strong>Advantages:</strong> Easy to understand, flexible, uses SQL.</p>
+      <p><strong>Disadvantages:</strong> Can be slower with very large datasets due to joins.</p>
+    </div>
+
+    <div class="section">
+      <h2>4. What is a relational database? How is it different from other database models?</h2>
+      <p>A relational database organizes data into tables (relations) where each record is a row and each attribute is a column. It differs from hierarchical and network models by using simple tabular structures and supporting SQL for flexible querying. Relationships are managed through keys rather than pointers.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. What is data redundancy? How does DBMS help in reducing it?</h2>
+      <p>Data redundancy is unnecessary duplication of data across files or tables. DBMS reduces redundancy by storing data centrally and normalizing it, so each data item is recorded only once and shared as needed.</p>
+    </div>
+
+    <div class="section">
+      <h2>6. Write differentiate between centralized and distributed database systems.</h2>
+      <table class="tble">
+        <thead>
+          <tr>
+            <th>Centralized Database</th>
+            <th>Distributed Database</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Stored in a single location</td>
+            <td>Distributed across multiple locations</td>
+          </tr>
+          <tr>
+            <td>Easy to manage and secure</td>
+            <td>More complex management and security</td>
+          </tr>
+          <tr>
+            <td>Single point of failure</td>
+            <td>Higher reliability with redundancy</td>
+          </tr>
+          <tr>
+            <td>May have performance bottlenecks</td>
+            <td>Improved performance through distribution</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>7. Who is Database Administrator (DBA)? What are the major responsibilities of DBA?</h2>
+      <p>A Database Administrator (DBA) is a person responsible for managing, maintaining, and securing the database system.</p>
+      <p><strong>Major Responsibilities:</strong></p>
+      <ul>
+        <li>Defining user access permissions</li>
+        <li>Monitoring and optimizing database performance</li>
+        <li>Ensuring data security and integrity</li>
+        <li>Backup and recovery management</li>
+        <li>Installing and upgrading DBMS software</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>8. Define normalization. Explain 1NF, 2NF and 3NF with suitable examples. Explain the normalization process with examples.</h2>
+      <p><strong>Normalization:</strong> The process of organizing data to reduce redundancy and improve integrity.</p>
+      <p><strong>1NF:</strong> All attributes have atomic values. For example, splitting a "Phone Numbers" field containing multiple numbers into separate rows.</p>
+      <p><strong>2NF:</strong> No partial dependency on a part of the composite key. For example, separating student and course information if course details depend only on course ID.</p>
+      <p><strong>3NF:</strong> No transitive dependency between non-key attributes. For example, removing a "Department Name" field from an employee table if it's dependent on Department ID, which is already a key.</p>
+    </div>
+
+    <div class="section">
+      <h2>9. Explain the terms: primary key, foreign key, and candidate key with examples.</h2>
+      <p><strong>Primary Key:</strong> A unique identifier for a record. Example: StudentID in a student table.</p>
+      <p><strong>Foreign Key:</strong> A field linking to a primary key in another table. Example: DepartmentID in Employee table referencing Department table.</p>
+      <p><strong>Candidate Key:</strong> Any field or combination of fields that can uniquely identify a record. Example: Email or NationalID could be candidate keys.</p>
+    </div>
+
+    <div class="section">
+      <h2>10. What is SQL? Explain its components and common functions.</h2>
+      <p><strong>SQL (Structured Query Language):</strong> A language used to manage and query relational databases.</p>
+      <p><strong>Components:</strong></p>
+      <ul>
+        <li><strong>DDL (Data Definition Language):</strong> CREATE, ALTER, DROP</li>
+        <li><strong>DML (Data Manipulation Language):</strong> SELECT, INSERT, UPDATE, DELETE</li>
+        <li><strong>DCL (Data Control Language):</strong> GRANT, REVOKE</li>
+        <li><strong>TCL (Transaction Control Language):</strong> COMMIT, ROLLBACK</li>
+      </ul>
+      <p><strong>Common Functions:</strong></p>
+      <ul>
+        <li>Querying data using SELECT</li>
+        <li>Inserting data with INSERT</li>
+        <li>Updating records with UPDATE</li>
+        <li>Deleting records using DELETE</li>
+        <li>Defining schema with CREATE</li>
+      </ul>
+    </div>
+    -->
+  </div>
+
+
+</body>
+</html>
