@@ -1,1 +1,2 @@
-
+Hello, this is a test file.
+I can keep adding new info using append.
