@@ -1,3 +1,4 @@
+/* ===== Base Styles ===== */
 body {
     margin: 0;
     font-family: Poppins, Arial, sans-serif;
@@ -5,6 +6,7 @@ body {
     color: #e0e0e0;
 }
 
+/* ===== Headings ===== */
 h1{
     text-align: center;
     margin: 2rem;
@@ -24,6 +26,7 @@ h2 {
     display: inline-block; 
 }
 
+/* Green underline below h2 */
 h2::after {
     content: "";
     display: block;
@@ -33,6 +36,7 @@ h2::after {
     margin-top: 0.1rem;
 }
 
+/* ===== Sidebar Navigation ===== */
 .sidebar {
     width: 200px;
     background-color: #22404a;
@@ -47,6 +51,7 @@ h2::after {
     overflow-y: auto;
 }
 
+/* Sidebar buttons */
 a.nav-button {
     position: relative;
     background-color: #a3d977;
@@ -62,6 +67,7 @@ a.nav-button {
     transition: all 0.3s ease;
 }
 
+/* Black bar inside nav-button */
 a.nav-button::before {
     content: "";
     position: absolute;
@@ -74,6 +80,7 @@ a.nav-button::before {
     transition: all 0.3s ease;
 }
 
+/* Hover effect for nav buttons */
 a.nav-button:hover {
     background-color: #90c766;
     transform: scale(1.05);
@@ -83,6 +90,7 @@ a.nav-button:hover::before {
     height: 60%;
 }
 
+/* Active button state */
 a.nav-button.active::before {
     height: 80%;
     background-color: #007bff;
@@ -94,11 +102,13 @@ a.nav-button.active {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Divider line */
 hr{
     border: 1px solid #a3d977;
     margin: 1rem 0;
 }
 
+/* ===== Main Content Area ===== */
 .content {
     margin-left: 220px;
     padding: 2rem;
@@ -107,6 +117,7 @@ hr{
     overflow-y: auto; 
 }
 
+/* Section boxes inside content */
 .section {
     background-color: #2a2a2a;
     padding: 1.5rem;
@@ -117,6 +128,7 @@ hr{
     border-bottom: 1px solid #a3d977;
 }
 
+/* Text formatting */
 p, li {
     line-height: 1.6;
 }
@@ -125,6 +137,7 @@ ul {
     margin-left: 1.5rem;
 }
 
+/* Code blocks */
 pre {
     background-color: #121212;
     color: #cddbf9;
@@ -137,13 +150,15 @@ pre {
     border-left: 4px solid #007bff;
 }
 
+/* Images inside content */
 img{
     max-width: 100%;
     height: auto;
     border-radius: 8px;
     margin: 1rem 0;
 }
-/* This is my most favourite thing i learned while doing this assignment. i learned to create a watermark without having to add a div in all the files:  */
+
+/* ===== Watermark ===== */
 body::after {    
     content: "Created by Harshit Karna";
     position: fixed;
@@ -157,6 +172,7 @@ body::after {
     z-index: 9999;
 }
 
+/* ===== Section Links ===== */
 .section-links {
   margin-top: 0.5rem;
   text-align: center;
@@ -178,7 +194,32 @@ body::after {
   background-color: #333;
 }
 
+/* ===== Smooth Scroll Behavior ===== */
 html {
   scroll-behavior: smooth;
 }
 
+/* ===== Scroll-to-top Button ===== */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 50px; /* just above watermark */
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(163, 217, 119, 0.7); /* semi-transparent green */
+  color: #141414;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 10000; /* above everything */
+  transition: background 0.3s, transform 0.3s;
+}
+
+#scrollTopBtn:hover {
+  background: rgba(163, 217, 119, 0.9);
+  transform: scale(1.1);
+}
